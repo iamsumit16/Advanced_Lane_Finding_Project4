@@ -91,8 +91,6 @@ Limitations: This current implementation is rather sensitive to lighting conditi
 
 The other limitation is the noisiness of the fit. This is caused by using a quadtratic fit for each frame. A solution would be using a bezier or clothoid curve that is not sensitive to local changes. Additionally it is worth applying a sliding window mean on the fit coefficients to smooth out the results and avoid instatenous changes due to changes in the gradient or lighting conditions.
 
-Challenge video The main difficulty of the challenge video is the crack in the middle of the lane would be picked up as a lane due to the gradient thresholding. I would attempt to rely on color thresholding as gradient was causing too many false detection events.
-
 
 ## How to write a README
 A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
