@@ -31,39 +31,53 @@ The goals / steps of this project are the following:
 
 ### 1. Camera Calibration and undistortion
 --- 
-The code for this step is contained in the first code cell of the IPython notebook located in "./examples/example.ipynb" (or in lines # through # of the file called some_file.py).
 
-I start by preparing "object points", which will be the (9, 6, 0) coordinates of the chessboard corners in the world. Here I am assuming the chessboard is fixed on the (x, y) plane at z=0, such that the object points are the same for each calibration image. Thus, objp is just a replicated array of coordinates, and objpoints will be appended with a copy of it every time I successfully detect all chessboard corners in a test image. imgpoints will be appended with the (9, 6) pixel position of each of the corners in the image plane with each successful chessboard detection.
+I start by preparing "object points", which will be the (x, y, z) coordinates of the chessboard corners in the world. Here I am assuming the chessboard is fixed on the (x, y) plane at z=0, such that the object points are the same for each calibration image. Thus, objp is just a replicated array of coordinates, and objpoints will be appended with a copy of it every time I successfully detect all chessboard corners in a test image. imgpoints will be appended with the (9, 6) pixel position of each of the corners in the image plane with each successful chessboard detection. For my purposes I have used x = 9 and y = 6 for the internal corners of the chessboard.
 
 I then used the output objpoints and imgpoints to compute the camera calibration and distortion coefficients using the cv2.calibrateCamera() function. I applied this distortion correction to the test image using the cv2.undistort() function and obtained this result:
 
 ![alt text](https://github.com/iamsumit16/Advanced_Lane_Finding_Project4/blob/master/output%20images/undist_cam.png)
 
+The result after applying undistortion to the test image:
+
 ![alt text](https://github.com/iamsumit16/Advanced_Lane_Finding_Project4/blob/master/output%20images/undist_img.png)
 
 ### 2. Perspective Transform
 ---
+I did a perspective transform first to have a better visualization of the binary imag when it is applied after it. I have used cv2.getPerspectiveTransform() in my top_down_view() method to do the transformation. the src and dst points are hard coded using the visual inspection according to the image.
+
 ![alt text](https://github.com/iamsumit16/Advanced_Lane_Finding_Project4/blob/master/output%20images/perspective.png)
 
 
 ### 3. Create a binary image
 ---
+To create the binary image I have used color thresholds for L channel and B channel of the HSL and LAB images to catch the yellow and white colors in the image. One can try numerous combinations to explore the various color spaces and gradient thresholds in x and y directions to make this more robust.
+After deciding the thresholds for colors, I replaces the pixels values for pixel which fall in specified range to 1 and rest of the pixel values to 0.
+
 ![alt text](https://github.com/iamsumit16/Advanced_Lane_Finding_Project4/blob/master/output%20images/top_down_bin.png)
 
 
 ### 4. Detect the lane line pixels and curve fitting
 ---
+To detect the lanes I have used the sliding window search as mentioned in the lecture slides. I use a second order polynomial to fit the lane pixels found in the sliding image search. This is specified in the findlines() method in my P4.ipynb notebook.
+
 ![alt text](https://github.com/iamsumit16/Advanced_Lane_Finding_Project4/blob/master/output%20images/hist.png)
 ![alt text](https://github.com/iamsumit16/Advanced_Lane_Finding_Project4/blob/master/output%20images/find_lane.png)
 ### 5. Determine the road curvature and vehicle offset
 ---
+The road curvature and vehicle offset are calculated using np.polyfit(). Once we know the road curvature, the vehicle offset from the center can be calculated using the shape of binary warped image ( half of shape[1]).
+
 ![alt text]()
 ### 6. Warp the detected lanes back to original image
 ---
+The lanes found and the polyfit curve is warped on th eoriginal image using the same cv2.warpPerspective() fucntion but now with Minv matrix.
+
 ![alt text](https://github.com/iamsumit16/Advanced_Lane_Finding_Project4/blob/master/output%20images/final_warp.png)
 
 ### 7. Visual Display of the final image
 ---
+In order to make the green lane-coverage output on the road smooth, I take the average of the polynomial fitting of the latest 20 frames to be the current fitting. The smoothing operation can be found in the function process_image(input_image). After smoothing, the output video is much more stable.
+
 ![alt text](https://github.com/iamsumit16/Advanced_Lane_Finding_Project4/blob/master/output%20images/final_out.png)
 
 
