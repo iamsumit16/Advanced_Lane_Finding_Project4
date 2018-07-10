@@ -67,7 +67,11 @@ To detect the lanes I have used the sliding window search as mentioned in the le
 ---
 The road curvature and vehicle offset are calculated using np.polyfit(). Once we know the road curvature, the vehicle offset from the center can be calculated using the shape of binary warped image ( half of shape[1]).
 
-![alt text]()
+The radius is found using the equation: 
+
+R curve = ([1+dx/dy)^2]^1.5)/abs(d^2y/dx^2)
+
+
 ### 6. Warp the detected lanes back to original image
 ---
 The lanes found and the polyfit curve is warped on th eoriginal image using the same cv2.warpPerspective() fucntion but now with Minv matrix.
