@@ -33,24 +33,37 @@ I start by preparing "object points", which will be the (9, 6, 0) coordinates of
 
 I then used the output objpoints and imgpoints to compute the camera calibration and distortion coefficients using the cv2.calibrateCamera() function. I applied this distortion correction to the test image using the cv2.undistort() function and obtained this result:
 
+![alt text](https://github.com/iamsumit16/Advanced_Lane_Finding_Project4/blob/master/output%20images/undist_cam.png)
+
+![alt text](https://github.com/iamsumit16/Advanced_Lane_Finding_Project4/blob/master/output%20images/undist_img.png)
+
 ### 2. Perspective Transform
 ---
+![alt text](https://github.com/iamsumit16/Advanced_Lane_Finding_Project4/blob/master/output%20images/top_down_out.png)
+
 
 ### 3. Create a binary image
 ---
+![alt text](https://github.com/iamsumit16/Advanced_Lane_Finding_Project4/blob/master/output%20images/top_down_bin.png)
+
 
 ### 4. Detect the lane line pixels and curve fitting
 ---
-
+![alt text](https://github.com/iamsumit16/Advanced_Lane_Finding_Project4/blob/master/output%20images/hist.png)
+![alt text](https://github.com/iamsumit16/Advanced_Lane_Finding_Project4/blob/master/output%20images/find_lane.png)
 ### 5. Determine the road curvature and vehicle offset
 ---
-
+![alt text]()
 ### 6. Warp the detected lanes back to original image
 ---
-
+![alt text](https://github.com/iamsumit16/Advanced_Lane_Finding_Project4/blob/master/output%20images/final_warp.png)
 
 ### 7. Visual Display of the final image
 ---
+![alt text](https://github.com/iamsumit16/Advanced_Lane_Finding_Project4/blob/master/output%20images/final_out.png)
+
+
+
 ## How to write a README
 A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
 
