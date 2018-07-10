@@ -87,7 +87,7 @@ In order to make the green lane-coverage output on the road smooth, I take the a
 
 ### 8. Discussion
 ---
-Limitations: This current implementation is rather sensitive to lighting conditions. As the contrast with the road and lane color change the gradient of the image did not detect the lane, hence I stopped using the gradient in generating a binary image. A potential approach would be using gradient angle to pickup lanes. However, this also caused the side of the road to be detected on the bridge. Possible solutions could be using a different color space such as LAB as suggested by several papers.
+Limitations: This current implementation is rather sensitive to lighting conditions. As the contrast with the road and lane color change the gradient of the image did not detect the lane, hence I stopped using the gradient in generating a binary image. A potential approach would be using gradient angle to pickup lanes. However, this also caused the side of the road to be detected on the bridge. 
 
 The other limitation is the noisiness of the fit. This is caused by using a quadtratic fit for each frame. A solution would be using a bezier or clothoid curve that is not sensitive to local changes. Additionally it is worth applying a sliding window mean on the fit coefficients to smooth out the results and avoid instatenous changes due to changes in the gradient or lighting conditions.
 
