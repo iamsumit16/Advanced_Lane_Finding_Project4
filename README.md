@@ -23,7 +23,7 @@ The goals / steps of this project are the following:
 
 ### Output Video
 ---
-[![Adv Lane Finding](http://img.youtube.com/vi/GUX3rYQXMEU/0.jpg)](https://www.youtube.com/watch?v=GUX3rYQXMEU&feature=youtu.be "Adv Lane Finding")
+[![Adv Lane Finding](http://img.youtube.com/vi/GLfWLHwiUgXg/0.jpg)](https://www.youtube.com/watch?v=LfWLHwiUgXg&feature=youtu.be "Adv Lane Finding")
 
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
