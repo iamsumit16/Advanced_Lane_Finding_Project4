@@ -21,6 +21,10 @@ The goals / steps of this project are the following:
 
 ### [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
+### Output Video
+---
+[![Adv Lane Finding](http://img.youtube.com/vi/GUX3rYQXMEU/0.jpg)](https://www.youtube.com/watch?v=GUX3rYQXMEU&feature=youtu.be "Adv Lane Finding")
+
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
 ---
