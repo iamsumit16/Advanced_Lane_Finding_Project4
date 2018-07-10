@@ -39,7 +39,7 @@ I then used the output objpoints and imgpoints to compute the camera calibration
 
 ### 2. Perspective Transform
 ---
-![alt text](https://github.com/iamsumit16/Advanced_Lane_Finding_Project4/blob/master/output%20images/top_down_out.png)
+![alt text](https://github.com/iamsumit16/Advanced_Lane_Finding_Project4/blob/master/output%20images/perspective.png)
 
 
 ### 3. Create a binary image
